@@ -4,7 +4,7 @@
 #include <pcl/point_types.h>
 #include <pcl/search/kdtree.h>
 #include <pcl/features/normal_3d_omp.h>
-#include <pcl/surface/marching_cubes_rbf.h>
+#include <pcl/surface/marching_cubes_hoppe.h>
 
 using namespace pcl;
 using namespace std;
@@ -39,7 +39,7 @@ int
     
     cout << "begin marching cubes reconstruction" << endl;    
 
-    MarchingCubesRBF<PointNormal> mc;
+    MarchingCubesHoppe<PointNormal> mc;
     PolygonMesh::Ptr triangles(new PolygonMesh);
     mc.setInputCloud (cloud_with_normals);
     mc.setSearchMethod (tree);
