@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
+project(MY_GRAND_PROJECT)
+
+set(PCL_DIR "/Users/greg/code/pclsuperbuild/PCLSuperBuild-build/PCL-build")
+find_package(PCL 1.5 REQUIRED COMPONENTS common io surface search features)
+include_directories(${PCL_INCLUDE_DIRS})
+link_directories(${PCL_LIBRARY_DIRS})
+add_definitions(${PCL_DEFINITIONS})
+add_executable(marching_cubes_test marching_cubes.cpp)
+target_link_libraries(marching_cubes_test ${PCL_LIBRARIES})
